@@ -2,6 +2,10 @@
 
 Detección de defectos en imágenes de superficies de metal
 
+## Tests
+
+![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
+
 ## Objetivos
 
 - Objetivo 1
@@ -45,7 +49,7 @@ $ python main.py
 #### Ejecutar los tests
 
 ```bash
-$ python tests.py
+$ python tests.py -v
 ```
 
 ## Estructura del proyecto
@@ -59,7 +63,9 @@ $ python tests.py
 │   └── Screen1.png
 ├── .gitignore
 ├── main.py
-└── README.md
+├── README.md
+├── requirements.txt
+└── tests.py
 ```
 
 ## Ejemplos
@@ -69,5 +75,5 @@ $ python tests.py
 ## Autores
 
 * **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
-* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
+* # **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/`vgilabert94`)
 * **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)

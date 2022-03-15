@@ -2,7 +2,7 @@
 # Importing python3 from local, just use "python3 <binary>" if is not the same location
 
 # /
-# ** AIVA_2022_METAL
+# ** AIVA_2022_METAL main_algorithm.py
 # ** Natalia / Vicent / Luis, 2022
 # ** File description:
 # ** Detección de defectos en imágenes de superficies de metal
@@ -13,12 +13,16 @@
 
 # Imports
 import argparse
+import numpy as np
 
 # Global variables
 
 # Class declarations
 
+
 # Function declarations
+def check_connection(a):
+    return a + 1
 
 
 def get_arguments():
@@ -30,6 +34,10 @@ def get_arguments():
 
 def main():
     args = get_arguments()
+
+    a = np.matrix([[1, 2], [3, 4]])
+    print(a.dtype)
+    print(a)
 
     print(args['file'])
 
