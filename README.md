@@ -54,7 +54,9 @@ $ pip install -r requirements.txt
 
 ## EJECUTAR LA APLICACION
 
-* main.py: El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos. 
+* ImperDetect.py: El archivo "core" de nuestra aplicacion, donde estan las funciones para ejecutar las tereas deseadas. 
+
+* main.py: El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.classify_and_locate. 
 ```bash
 $ python main.py
 ```
