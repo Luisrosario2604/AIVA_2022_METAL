@@ -1,18 +1,42 @@
-# AIVA_2022_METAL
+# AIVA_2022_METAL GRUPO C
+## Clasificación y localización de defectos en imágenes de superficies de metal.
 
-Detección de defectos en imágenes de superficies de metal
+## AUTORES
+
+* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
+* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
+* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
+
+
+## DESCRIPCION
+Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.
+El objetivo de este trabajo es la clasificación y detección de defectos en superficies metalicas en una línea de producción. Para ello realizaremos una implementacion en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicacion que ya esta funcionando en la fabrica.
+
+
+## ESQUEMA GENERAL
+Añadir imagen del esquema
+
+
+## Estructura del proyecto
+
+```
+.
+├── Data
+│   ├── ANNOTATIONS
+│   └── IMAGES
+├── Exemples
+│   └── Screen1.png
+├── .gitignore
+├── main.py
+├── README.md
+├── requirements.txt
+└── tests.py
+```
 
 ## Tests
 
 ![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
 
-## Objetivos
-
-- Objetivo 1
-- Objetivo 2
-- Objetivo 3
-
-## Explanation
 
 #### Parte 1
 
@@ -52,28 +76,8 @@ $ python main.py
 $ python tests.py -v
 ```
 
-## Estructura del proyecto
-
-```
-.
-├── Data
-│   ├── ANNOTATIONS
-│   └── IMAGES
-├── Exemples
-│   └── Screen1.png
-├── .gitignore
-├── main.py
-├── README.md
-├── requirements.txt
-└── tests.py
-```
-
 ## Ejemplos
 
 ![Exemples](./Exemples/Screen1.png)
 
-## Autores
 
-* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
-* # **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/`vgilabert94`)
-* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
