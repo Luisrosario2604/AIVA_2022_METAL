@@ -14,6 +14,9 @@ Este repositorio contiene la práctica para la asignatura Aplicaciones Industria
 
 El objetivo de este trabajo es la clasificación y detección de defectos en superficies metálicas en una línea de producción. Para ello realizaremos una implementación en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicación que ya está funcionando en la fábrica.
 
+## RESULTADOS DE LOS TESTS
+
+![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
 
 ## DATASET
 El dataset proporcionado por la empresa esta compuesto por imágenes de 200x200 en escala de grises.
@@ -46,24 +49,59 @@ Se adjunta la lista de la documentación oficial del proyecto entregada al clien
 ```bash
 $ pip install -r requirements.txt
 ```
-###### matplotlib (3.3.4)
 ###### numpy (1.21.3)
 ###### opencv_python (4.5.3.56)
-###### Pillow (8.4.0)
 
 
 ## EJECUTAR LA APLICACION
 
-* ImperDetect.py: El archivo "core" de nuestra aplicacion, donde estan las funciones para ejecutar las tereas deseadas. 
+* yolo_implentation : El archivo "core" de nuestra aplicacion, donde estan las funciones para ejecutar las tereas deseadas. 
 
-* main.py: El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.classify_and_locate. 
+* main_algorithm : El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.classify_and_locate.
+
+* file_manager : El archivo donde se importarant las imagenes.
+
 ```bash
-$ python main.py
+$ python3 src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
 ```
 
-* test.py: Es el archivo que realiza los test unitarios sobre el código principal (main.py) para verificar que las funciones/clases funcionen correctamente 
+* test_algorithm.py: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente 
+
 ```bash
-$ python tests.py -v
+$ pip install tox
+$ tox
+```
+
+## ESTRUCTURE DEL PROYECTO
+
+```
+.
+├── dataset
+│        ├── ANNOTATIONS
+│        └── IMAGES
+├── docs
+│        └── ERS_grupoC.pdf
+├── Exemples
+│        ├── esquema.jpeg
+│        ├── resultado.jpeg
+│        ├── Screen1.png
+│        └── tipos_defectos.png
+├── pyproject.toml
+├── README.md
+├── requirements_dev.txt
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+├── src
+│   └── algorithm
+│            ├── file_manager.py
+│            ├── __init__.py
+│            ├── main_algorithm.py
+│            ├── py.typed
+│            └── yolo_implementation.py
+├── tests
+│       └── test_algorithm.py
+└── tox.ini
 ```
 
 
