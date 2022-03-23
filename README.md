@@ -12,12 +12,12 @@
 ## DESCRIPCION
 Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.  
 
-El objetivo de este trabajo es la clasificación y detección de defectos en superficies metalicas en una línea de producción. Para ello realizaremos una implementacion en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicacion que ya esta funcionando en la fabrica.
+El objetivo de este trabajo es la clasificación y detección de defectos en superficies metálicas en una línea de producción. Para ello realizaremos una implementación en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicación que ya está funcionando en la fábrica.
 
 
 ## DATASET
-El dataset proporcionado por la empresa esta compuesto por imagenes de 200x200 en escala de grises.
-Por cada categoria nos han proporcionado 300 imagenes con sus etiquetas. Las categorias a clasificar son las siguientes:
+El dataset proporcionado por la empresa esta compuesto por imágenes de 200x200 en escala de grises.
+Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las categorías a clasificar son las siguientes:
 * *Inclusions*
 * *Patches*
 * *Scratches*
@@ -35,7 +35,7 @@ Por cada categoria nos han proporcionado 300 imagenes con sus etiquetas. Las cat
 
 ## DOCUMENTACION
 
-Se adjunta la lista de la documentacion oficial del proyecto entregada al cliente:
+Se adjunta la lista de la documentación oficial del proyecto entregada al cliente:
 * Entrega 1: -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
 
 
@@ -54,12 +54,12 @@ $ pip install -r requirements.txt
 
 ## EJECUTAR LA APLICACION
 
-* main.py: Es el archivo principal de la aplicacion es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos. 
+* main.py: El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos. 
 ```bash
 $ python main.py
 ```
 
-* test.py: Es el archivo que realiza los test unitarios sobre el codigo principal (main.py) para verificar que las funciones/clases funcionen correctamente 
+* test.py: Es el archivo que realiza los test unitarios sobre el código principal (main.py) para verificar que las funciones/clases funcionen correctamente 
 ```bash
 $ python tests.py -v
 ```
