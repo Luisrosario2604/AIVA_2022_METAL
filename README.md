@@ -16,7 +16,7 @@ El objetivo de este trabajo es la clasificación y detección de defectos en sup
 
 ## ESQUEMA GENERAL
 <p align="center">
-	<img src="Examples/esquema.jpeg" alt="esquema"/>
+	<img src="Exemples/esquema.jpeg" alt="esquema"/>
 </p>
 
 
