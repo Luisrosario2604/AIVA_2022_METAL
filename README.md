@@ -9,12 +9,15 @@
 
 
 ## DESCRIPCION
-Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.
+Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.  
+
 El objetivo de este trabajo es la clasificación y detección de defectos en superficies metalicas en una línea de producción. Para ello realizaremos una implementacion en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicacion que ya esta funcionando en la fabrica.
 
 
 ## ESQUEMA GENERAL
-Añadir imagen del esquema
+<p align="center">
+	<img src="Examples/esquema.jpeg" alt="esquema"/>
+</p>
 
 
 ## Estructura del proyecto
