@@ -1,5 +1,6 @@
-# AIVA_2022_METAL GRUPO C
-## Clasificación y localización de defectos en imágenes de superficies de metal.
+# AIVA_2022_METAL_GRUPO_C
+# Clasificación y localización de defectos en imágenes de superficies de metal.
+
 
 ## AUTORES
 
@@ -14,46 +15,31 @@ Este repositorio contiene la práctica para la asignatura Aplicaciones Industria
 El objetivo de este trabajo es la clasificación y detección de defectos en superficies metalicas en una línea de producción. Para ello realizaremos una implementacion en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicacion que ya esta funcionando en la fabrica.
 
 
+## DATASET
+El dataset proporcionado por la empresa esta compuesto por imagenes de 200x200 en escala de grises.
+Por cada categoria nos han proporcionado 300 imagenes con sus etiquetas. Las categorias a clasificar son las siguientes:
+* *Inclusions*
+* *Patches*
+* *Scratches*
+
+<p align="center">
+	<img src="Exemples/tipos_defectos.png" alt="resultado" width="80%"/>
+</p>
+
+
 ## ESQUEMA GENERAL
 <p align="center">
 	<img src="Exemples/esquema.jpeg" alt="esquema"/>
 </p>
 
 
-## Estructura del proyecto
+## DOCUMENTACION
 
-```
-.
-├── Data
-│   ├── ANNOTATIONS
-│   └── IMAGES
-├── Exemples
-│   └── Screen1.png
-├── .gitignore
-├── main.py
-├── README.md
-├── requirements.txt
-└── tests.py
-```
-
-## Tests
-
-![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
+Se adjunta la lista de la documentacion oficial del proyecto entregada al cliente:
+* Entrega 1: -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
 
 
-#### Parte 1
-
-* main.py :
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur augue quis odio rutrum consequat. Etiam ultricies vehicula purus, nec fermentum augue iaculis at. Suspendisse id molestie dolor, sollicitudin imperdiet magna. Vivamus porta sapien ut finibus tempus. Pellentesque et ex sapien. Praesent justo est, tristique sit amet libero quis, tincidunt laoreet augue. Vivamus auctor sem nunc. Suspendisse scelerisque feugiat congue. Sed id elit massa. Sed elit mi, semper ac mi nec, venenatis ultricies risus. Fusce consequat purus imperdiet porta consequat.
-
-#### Parte 2
-
-* test.py :
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur augue quis odio rutrum consequat. Etiam ultricies vehicula purus, nec fermentum augue iaculis at. Suspendisse id molestie dolor, sollicitudin imperdiet magna. Vivamus porta sapien ut finibus tempus. Pellentesque et ex sapien. Praesent justo est, tristique sit amet libero quis, tincidunt laoreet augue. Vivamus auctor sem nunc. Suspendisse scelerisque feugiat congue. Sed id elit massa. Sed elit mi, semper ac mi nec, venenatis ultricies risus. Fusce consequat purus imperdiet porta consequat.
-
-## Requisitos
+## REQUISITOS
 
 * Python 3.7+
 * Requirements = Requirement.txt
@@ -65,22 +51,21 @@ $ pip install -r requirements.txt
 ###### opencv_python (4.5.3.56)
 ###### Pillow (8.4.0)
 
-## Usage
 
-#### Ejecutar la detection de defectos en imágenes de superficies de metal
+## EJECUTAR LA APLICACION
 
+* main.py: Es el archivo principal de la aplicacion es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos. 
 ```bash
 $ python main.py
 ```
 
-#### Ejecutar los tests
-
+* test.py: Es el archivo que realiza los test unitarios sobre el codigo principal (main.py) para verificar que las funciones/clases funcionen correctamente 
 ```bash
 $ python tests.py -v
 ```
 
-## Ejemplos
 
-![Exemples](./Exemples/Screen1.png)
-
-
+## RESULTADOS 
+<p align="center">
+	<img src="Exemples/resultado.jpeg" alt="resultado" width="50%"/>
+</p>
