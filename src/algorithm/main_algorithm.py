@@ -14,8 +14,8 @@
 # Imports
 import argparse
 import numpy as np
-# import cv2
-# from file_manager import open_image
+import cv2
+from file_manager.main_file_manager import open_image
 
 # Global variables
 
@@ -38,11 +38,11 @@ def get_arguments():
 def main():
     args = get_arguments()
 
-    # image = open_image(args["file"])
+    image = open_image(args["file"])
 
-    # if args["show_example"]:
-    #     cv2.imshow('image', image)
-    #     cv2.waitKey()
+    if args["show_example"]:
+        cv2.imshow('image', image)
+        cv2.waitKey()
 
     a = np.matrix([[1, 2], [3, 4]])
     print(a.dtype)

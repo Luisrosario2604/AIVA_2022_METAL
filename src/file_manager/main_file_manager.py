@@ -12,7 +12,7 @@
 # */
 
 import cv2
-from yolo_implementation import classify_and_locate
+from yolo_implementation.main_yolo_implementation import classify_and_locate
 
 
 # Loads one image

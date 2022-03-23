@@ -47,9 +47,10 @@ Se adjunta la lista de la documentación oficial del proyecto entregada al clien
 * Python 3.7+
 * Requirements = Requirement.txt
 ```bash
+$ pip install -e .
 $ pip install -r requirements.txt
 ```
-###### numpy (1.21.3)
+###### numpy (1.22.3)
 ###### opencv_python (4.5.3.56)
 
 
@@ -61,12 +62,14 @@ $ pip install -r requirements.txt
 
 * file_manager : El archivo donde se importarant las imagenes.
 
+### Run algorithm (No olblidar los requisitos !)
 ```bash
 $ python3 src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
 ```
 
 * test_algorithm.py: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente 
 
+### Run tests (Automaticos cuando hay un push o pull)
 ```bash
 $ pip install tox
 $ tox
