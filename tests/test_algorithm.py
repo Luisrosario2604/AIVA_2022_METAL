@@ -37,5 +37,5 @@ def test_fail_algorithm():
 
 # @pytest.mark.skip(reason="classification not supported yet")
 # def test_classification():
-#     someImages = "Img/test"
-#     assert classification_result(someImages) == 0
+#     file = "Img/test"
+#     assert classification_result(file) == 0
