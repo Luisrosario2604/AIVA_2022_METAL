@@ -64,7 +64,7 @@ $ pip install -r requirements.txt
 
 ### Run algorithm (No olblidar los requisitos !)
 ```bash
-$ python3 src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
+$ python src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
 ```
 
 * test_algorithm.py: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente 
