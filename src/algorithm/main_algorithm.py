@@ -16,6 +16,7 @@ import argparse
 import numpy as np
 import cv2
 from file_manager.main_file_manager import open_image
+from imper_detect.main_imper_detect import ImperDetect
 
 # Global variables
 
@@ -38,17 +39,28 @@ def get_arguments():
 def main():
     args = get_arguments()
 
-    image = open_image(args["file"])
+    image_path = args["file"]
+    # image = open_image(image_path)
 
-    if args["show_example"]:
-        cv2.imshow('image', image)
-        cv2.waitKey()
+    # if args["show_example"]:
+    #     cv2.imshow('image', image)
+    #     cv2.waitKey()
+    #
+    # a = np.matrix([[1, 2], [3, 4]])
+    # print(a.dtype)
+    # print(a)
 
-    a = np.matrix([[1, 2], [3, 4]])
-    print(a.dtype)
-    print(a)
+    # print(args['file'])
 
-    print(args['file'])
+    imper = ImperDetect(image_path)
+    imper.print_info()
+
+    imper.draw()
+
+
+    # imperfections = (imper.detection())
+    # for imperfection in imperfections:
+    #     imperfection.print_info()
 
 
 # Main body

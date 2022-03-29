@@ -12,7 +12,32 @@
 # */
 
 import cv2
-from yolo_implementation.main_yolo_implementation import classify_and_locate
+import random
+# from yolo_implementation.main_yolo_implementation import classify_and_locate
+
+
+# Defect classifier and locator of imperfections in images.
+def classify_and_locate(img):
+    '''
+    TYPE OF DEFECTS:
+    0: inclusions
+    1: scratches
+    2: patches
+    -------------------------------------------
+    location = [xmin, ymin, xmax, ymax] in pixels
+    size = [width, height, depth] in pixels
+    '''
+    height, width, channels = img.shape
+
+    xmin = random.randint(0, width)
+    ymin = random.randint(0, height)
+    xmax = random.randint(xmin, width)
+    ymax = random.randint(ymin, height)
+    location = [xmin, ymin, xmax, ymax]
+
+    label = random.randint(0, 2)
+
+    return label, location
 
 
 # Loads one image
@@ -26,7 +51,7 @@ def open_image(path):
         text_label = 'inclusions'
     elif label == 1:
         text_label = 'scratches'
-    elif label == 2:
+    else:
         text_label = 'patches'
 
     # print('Etiqueta del defecto: ' + str(label) + " = " + text_label)
