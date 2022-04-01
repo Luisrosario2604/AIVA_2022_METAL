@@ -15,7 +15,6 @@
 import argparse
 import numpy as np
 import cv2
-from file_manager.main_file_manager import open_image
 from imper_detect.main_imper_detect import ImperDetect
 
 # Global variables
@@ -32,35 +31,20 @@ def get_arguments():
     ap = argparse.ArgumentParser()
 
     ap.add_argument("-f", "--file", required=True, help="path of the data file")
-    ap.add_argument("-s", "--show_example", required=False, help="shows an example image", action='store_true')
+    ap.add_argument("-s", "--store_result", required=False, help="store the result", action='store_true')
     return vars(ap.parse_args())
 
 
 def main():
     args = get_arguments()
-
     image_path = args["file"]
-    # image = open_image(image_path)
 
-    # if args["show_example"]:
-    #     cv2.imshow('image', image)
-    #     cv2.waitKey()
-    #
-    # a = np.matrix([[1, 2], [3, 4]])
-    # print(a.dtype)
-    # print(a)
-
-    # print(args['file'])
-
-    imper = ImperDetect(image_path)
+    imper = ImperDetect(image_path, "yoloV5")
+    imper.detection()
     imper.print_info()
 
-    imper.draw()
-
-
-    # imperfections = (imper.detection())
-    # for imperfection in imperfections:
-    #     imperfection.print_info()
+    if args["store_result"]:
+        imper.draw_all_classes_yoloV5()
 
 
 # Main body

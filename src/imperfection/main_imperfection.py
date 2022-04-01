@@ -5,7 +5,7 @@
 # ** AIVA_2022_METAL main_imperfection.py
 # ** Natalia / Vicent / Luis, 2022
 # ** File description:
-# ** Detección de defectos en imágenes de superficies de metal con yolo
+# ** Clase para obtener las coordenada y classe
 # ** https://github.com/natalialperez
 # ** https://github.com/vgilabert94
 # ** https://github.com/Luisrosario2604
@@ -19,10 +19,10 @@ class Imperfection:
         self.w = w
         self.classification = classification
 
-    def print_info(self):
-        print("Imperfection :")
-        print("\t\tx = ", self.x)
-        print("\t\ty = ", self.y)
-        print("\t\th = ", self.h)
-        print("\t\tw = ", self.w)
-        print("\t\tClass = ", self.classification)
+    def print_info(self, number=0):
+        print("\033[1m" + "[CLASS] Imperfection " + str(number) + "\033[0m", end="")
+        print("\tx:" + str(self.x) +
+              "  y:" + str(self.y) +
+              "  w:" + str(self.w) +
+              "  h:" + str(self.h) +
+              "  class:" + str(self.classification))

@@ -15,53 +15,25 @@ import os
 import shutil
 
 from imperfection.main_imperfection import Imperfection
+from system_recognition.main_system_recognition import SystemRecognition
 
 
 class ImperDetect:
 
-    def __init__(self, image_path):
-
-        if not os.path.exists(image_path):
-            raise Exception("\033[1m" + "[ERROR] -> File not existing" + "\033[0m")
-        if not image_path.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
-            raise Exception("\033[1m" + "[ERROR] -> File is not an image" + "\033[0m")
-
-        split = os.path.splitext(image_path)
-
-        name = split[-2].split("/")[-1]
-
+    def __init__(self, image_path, algorithm="yoloV5"):
         self.image_path = image_path
-        self.image_ext = split[-1][1:]
-        self.image_name = name
+        self.algorithm = algorithm
+        self.class_system_recognition = SystemRecognition(image_path, algorithm)
 
     def draw(self):
-        if os.path.isdir('./yolov5/runs'):
-            shutil.rmtree('./yolov5/runs')
-        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --source " + str(self.image_path)
-        os.system(prog)
-
-        if not os.path.isdir('./results'):
-            os.mkdir('./results')
-        shutil.copyfile("./yolov5/runs/detect/exp/" + self.image_name + "." + self.image_ext, "./results/" + self.image_name + "." + self.image_ext)
-        print("\033[1m" + "[INFO] -> Results are in \"results\" directory" + "\033[0m")
+        print("draw")
 
     def detection(self):
-        detections = []
-        if os.path.isdir('./yolov5/runs'):
-            shutil.rmtree('./yolov5/runs')
-        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --source " + str(self.image_path) + " --nosave " + " --save-txt"
-        os.system(prog)
-        with open("./yolov5/runs/detect/exp/labels/" + self.image_name + ".txt") as f:
-            lines = f.readlines()
-            for line in lines:
-                l = line.split(' ')
-                detections.append(Imperfection(l[1], l[2], l[3], l[4], l[0]))
-
-        return detections
+        if self.algorithm == "yoloV5":
+            self.class_system_recognition.detect_yoloV5()
 
     def print_info(self):
-        print("Imperfection :")
-        print("\t\tpath = ", self.image_path)
-        print("\t\tname = ", self.image_name)
-        print("\t\text = ", self.image_ext)
-
+        print("\033[1m" + "[CLASS] Imper Detect" "\033[0m")
+        print("\t\timage path =\t\t", self.image_path)
+        print("\t\talgorithm used =\t", self.algorithm)
+        self.class_system_recognition.print_info()
