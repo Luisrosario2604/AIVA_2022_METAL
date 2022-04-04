@@ -26,13 +26,13 @@ Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las c
 * *Scratches*
 
 <p align="center">
-	<img src="Exemples/tipos_defectos.png" alt="resultado" width="80%"/>
+	<img src="exemples/tipos_defectos.png" alt="resultado" width="80%"/>
 </p>
 
 
 ## ESQUEMA GENERAL
 <p align="center">
-	<img src="Exemples/esquema.jpeg" alt="esquema"/>
+	<img src="exemples/esquema.jpeg" alt="esquema"/>
 </p>
 
 
@@ -84,7 +84,7 @@ $ tox
 │        └── IMAGES
 ├── docs
 │        └── ERS_grupoC.pdf
-├── Exemples
+├── exemples
 │        ├── esquema.jpeg
 │        ├── resultado.jpeg
 │        ├── Screen1.png
@@ -110,5 +110,5 @@ $ tox
 
 ## RESULTADOS 
 <p align="center">
-	<img src="Exemples/resultado.jpeg" alt="resultado" width="50%"/>
+	<img src="exemples/resultado.jpeg" alt="resultado" width="50%"/>
 </p>
