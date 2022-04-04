@@ -1,0 +1,12 @@
+[1m[INFO] -> Fast RCNN is not implemented yet ...[0m
+[1m[CLASS] Imper Detect[0m
+[1m[CLASS] System Recognition[0m
+		image path =		 dataset/IMAGES/inclusion_1.jpg
+		image name =		 inclusion_1
+		image extension =	 jpg
+		algorithm used =	 Fast_RCNN
+Algorithm : Fast_RCNN
+Imperfections : []
+Class : None
+Image : ['dataset/IMAGES/inclusion_1.jpg', 'inclusion_1', 'jpg']
+[1m[INFO] -> Fast RCNN is not implemented yet ...[0m
