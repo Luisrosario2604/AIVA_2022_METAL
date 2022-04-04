@@ -12,12 +12,16 @@
 # */
 
 class Imperfection:
-    def __init__(self, x, y, h, w, classification):
+    def __init__(self, x, y, h, w, classification, confidence):
         self.x = x
         self.y = y
         self.h = h
         self.w = w
         self.classification = classification
+        self.confidence = confidence
+
+    def get_coords_class(self):
+        return [self.classification, self.x, self.y, self.h, self.w, self.confidence]
 
     def print_info(self, number=0):
         print("\033[1m" + "[CLASS] Imperfection " + str(number) + "\033[0m", end="")
@@ -25,4 +29,5 @@ class Imperfection:
               "  y:" + str(self.y) +
               "  w:" + str(self.w) +
               "  h:" + str(self.h) +
-              "  class:" + str(self.classification))
+              "  class:" + str(self.classification) +
+              "  confidence:" + str(self.confidence))

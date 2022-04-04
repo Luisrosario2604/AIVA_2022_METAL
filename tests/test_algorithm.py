@@ -33,9 +33,3 @@ def test_multi_algorithm(test_input, expected):
 @pytest.mark.xfail
 def test_fail_algorithm():
     assert check_connection(1) == 0
-
-
-# @pytest.mark.skip(reason="classification not supported yet")
-# def test_classification():
-#     file = "Img/test"
-#     assert classification_result(file) == 0

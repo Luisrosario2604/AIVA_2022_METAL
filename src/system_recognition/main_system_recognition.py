@@ -13,6 +13,7 @@
 
 import os
 import shutil
+import cv2
 
 from imperfection.main_imperfection import Imperfection
 
@@ -42,17 +43,7 @@ class SystemRecognition:
         self.image_name = name
         self.algorithm = algorithm
         self.list_class_imperfections = []
-
-    def draw_all_classes_yoloV5(self):
-        if os.path.isdir('./yolov5/runs'):
-            shutil.rmtree('./yolov5/runs')
-        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --source" + str(self.image_path)
-        os.system(prog)
-
-        if not os.path.isdir('./results'):
-            os.mkdir('./results')
-        shutil.copyfile("./yolov5/runs/detect/exp/" + self.image_name + "." + self.image_ext, "./results/" + self.image_name + "." + self.image_ext)
-        print("\033[1m" + "[INFO] -> Results are in \"results\" directory" + "\033[0m")
+        self.class_most_conf = None
 
     def detect_yoloV5(self):
         classes_count = []
@@ -61,22 +52,92 @@ class SystemRecognition:
 
         if os.path.isdir('./yolov5/runs'):
             shutil.rmtree('./yolov5/runs')
-        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --save-conf --source " + str(self.image_path) + " --nosave " + "--save-txt"
+        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --save-conf --source "\
+               + str(self.image_path) + " --nosave " + "--save-txt"
         os.system(prog)
         print("\n___________________________________________________________\n\n")
-        with open("./yolov5/runs/detect/exp/labels/" + self.image_name + ".txt") as f:
-            lines = f.readlines()
-            for line in lines:
-                classes_count.append(int(line.split(' ')[0]))
-                confidence_count.append(float(line.split(' ')[5]))
-            class_most_conf = get_class_most_confident_sum(classes_count, confidence_count)
-            for line in lines:
-                l = line.split(' ')
-                if int(l[0]) == class_most_conf:
-                    self.list_class_imperfections.append(Imperfection(float(l[1]), float(l[2]), float(l[3]), float(l[4]), int(l[0])))
+        if not os.path.isfile(("./yolov5/runs/detect/exp/labels/" + self.image_name + ".txt")):
+            self.list_class_imperfections.append(Imperfection(0, 0, 0, 0, 0, 0))
+        else:
+            with open("./yolov5/runs/detect/exp/labels/" + self.image_name + ".txt") as f:
+                lines = f.readlines()
+                for line in lines:
+                    classes_count.append(int(line.split(' ')[0]))
+                    confidence_count.append(float(line.split(' ')[5]))
+                self.class_most_conf = get_class_most_confident_sum(classes_count, confidence_count)
+                for line in lines:
+                    splited = line.split(' ')
+                    if int(splited[0]) == self.class_most_conf:
+                        self.list_class_imperfections.append(Imperfection(float(splited[1]),
+                                                                          float(splited[2]),
+                                                                          float(splited[3]),
+                                                                          float(splited[4]),
+                                                                          int(splited[0]),
+                                                                          float(splited[5])))
 
         if os.path.isdir('./yolov5/runs'):
             shutil.rmtree('./yolov5/runs')
+
+    def draw_yoloV5(self):
+        img = cv2.imread(self.image_path)
+        dim = img.shape
+        result_list = []
+        imperfections = self.get_imperfections()
+        label_str = ""
+        classification = 0
+        drawed = None
+
+        for imper in imperfections:
+            classification = imper[0]
+            x = imper[1]
+            y = imper[2]
+            w = imper[3]
+            h = imper[4]
+            confidence = imper[5]
+
+            print("0 -> " + str(imper))
+
+            x1 = max(int((x - w / 2) * dim[1]), 0)
+            y1 = min(int((y - h / 2) * dim[0]), dim[0])
+            x2 = max(int((x + w / 2) * dim[1]), 0)
+            y2 = min(int((y + h / 2) * dim[0]), dim[0])
+            result_list.append(confidence)
+
+            drawed = cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 1)
+
+        if classification == 0:
+            label_str = "inclusion"
+        elif classification == 1:
+            label_str = "patches"
+        elif classification == 2:
+            label_str = "scratches"
+        result_mean = sum(result_list) / len(result_list)
+        text_to_draw = label_str + ":  " + str(result_mean)
+        drawed = cv2.putText(img=drawed, text=text_to_draw, org=(20, 20), fontFace=0, fontScale=0.5, color=(0, 0, 255), thickness=1)
+
+        if not os.path.isdir('./results'):
+            os.mkdir('./results')
+        cv2.imwrite("./results/" + self.image_name + "." + self.image_ext, drawed)
+        print("\033[1m" + "[INFO] -> Image result in \"results\" directory" + "\033[0m")
+
+    def detect_fastRCNN(self):
+        print("\033[1m" + "[INFO] -> Fast RCNN is not implemented yet ..." + "\033[0m")
+
+    def draw_fastRCNN(self):
+        print("\033[1m" + "[INFO] -> Fast RCNN is not implemented yet ..." + "\033[0m")
+
+    def get_class_most_conf(self):
+        return self.class_most_conf
+
+    def get_image(self):
+        return [self.image_path, self.image_name, self.image_ext]
+
+    def get_algorithm(self):
+        return self.algorithm
+
+    def get_imperfections(self):
+        class_imperfections = self.list_class_imperfections
+        return [i.get_coords_class() for i in class_imperfections]
 
     def print_info(self):
         print("\033[1m" + "[CLASS] System Recognition" "\033[0m")

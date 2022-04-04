@@ -13,8 +13,6 @@
 
 # Imports
 import argparse
-import numpy as np
-import cv2
 from imper_detect.main_imper_detect import ImperDetect
 
 # Global variables
@@ -40,11 +38,17 @@ def main():
     image_path = args["file"]
 
     imper = ImperDetect(image_path, "yoloV5")
+    # imper = ImperDetect(image_path, "Fast_RCNN")
     imper.detection()
     imper.print_info()
 
+    print("Algorithm : " + str(imper.get_class_system_recognition().get_algorithm()))
+    print("Imperfections : " + str(imper.get_class_system_recognition().get_imperfections()))
+    print("Class : " + str(imper.get_class_system_recognition().get_class_most_conf()))
+    print("Image : " + str(imper.get_class_system_recognition().get_image()))
+
     if args["store_result"]:
-        imper.draw_all_classes_yoloV5()
+        imper.draw()
 
 
 # Main body
