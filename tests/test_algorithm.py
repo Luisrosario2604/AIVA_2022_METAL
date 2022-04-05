@@ -61,6 +61,9 @@ def test_imper_print_info():
         sys.stdout = f
         imper1.print_info()
         sys.stdout = orig_stdout
+    print("Class most conf HERE")
+    print(type(imper1.get_class_system_recognition().get_class_most_conf()))
+    print(imper1.get_class_system_recognition().get_class_most_conf())
     assert imper1.get_class_system_recognition().get_class_most_conf() == 0
 
 

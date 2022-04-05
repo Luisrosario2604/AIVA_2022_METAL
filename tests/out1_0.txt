@@ -7,6 +7,6 @@
 		algorithm used =	 Fast_RCNN
 Algorithm : Fast_RCNN
 Imperfections : []
-Class : -1
+Class : None
 Image : ['dataset/IMAGES/inclusion_1.jpg', 'inclusion_1', 'jpg']
 [1m[INFO] -> Fast RCNN is not implemented yet ...[0m

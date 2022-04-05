@@ -43,7 +43,7 @@ class SystemRecognition:
         self.image_name = name
         self.algorithm = algorithm
         self.list_class_imperfections = []
-        self.class_most_conf = -1
+        self.class_most_conf = None
 
     def detect_yoloV5(self):
         classes_count = []
