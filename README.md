@@ -63,7 +63,7 @@ $ pip install -r requirements.txt
 
 * **system_recognition:** El archivo main_system_recognition.py es el core de nuestra aplicación. Desde esta clase se realiza la detección, utilizando yolo_v5 aunque se podria utilizar otra red neuronal si la tuvieramos entrenada. También se realiza el dibujado de los resultados y un post-procesado de los resultados para quedarnos con la etiqueta de mayor peso como resultado final.
 
-* **imperfection:** El archivo main_imperfection.py contiene la clase Imperfection, donde definimos que formato tendra cada resultado de la red neuronal. El resultado obtenido desde yolo_v5, sera una lista de Imperfections.
+* **imperfection:** El archivo main_imperfection.py contiene la clase Imperfection, donde definimos que formato tendrá cada resultado de la red neuronal. El resultado obtenido desde yolo_v5, será una lista de Imperfection.
 
 
 ### Run algorithm (¡No olvidar los requisitos!)
@@ -71,15 +71,18 @@ $ pip install -r requirements.txt
 $ python src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
 ```
 
-* test_algorithm.py: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente 
+* **test_algorithm.py**: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente.
 
-### Run tests (Automaticos cuando hay un push o pull)
+### Tests automáticos.  
+Estos test son automáticos cuando hay un push o un pull desde github.
+
+Es necesario instalar el siguiente paquete:
 ```bash
 $ pip install tox
 $ tox
 ```
 
-## ESTRUCTURE DEL PROYECTO
+## ESTRUCTURA DEL PROYECTO
 
 ```
 .
@@ -101,15 +104,21 @@ $ tox
 ├── setup.py
 ├── src
 │   └── algorithm
-│            ├── main_algorithm.py
+│       └── main_algorithm.py
 │   └── imper_detect
-│            ├── main_imper_detect.py
+│       └── main_imper_detect.py
 │   └── imperfection
-│            ├── main_imperfection.py
+│       └── main_imperfection.py
 │   └── system_recognition
-│            ├── main_system_recognition.py
+│       └── main_system_recognition.py
 ├── tests
 │       └── test_algorithm.py
+├── yolo_v5
+│       ├── models
+│       ├── utils
+│       ├── weights
+│       ├── detect.py
+│       └── export.py
 └── tox.ini
 ```
 
