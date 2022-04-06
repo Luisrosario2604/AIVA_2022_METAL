@@ -19,7 +19,7 @@ El objetivo de este trabajo es la clasificación y detección de defectos en sup
 ![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
 
 ## DATASET
-El dataset proporcionado por la empresa esta compuesto por imágenes de 200x200 en escala de grises.
+El dataset proporcionado por la empresa está compuesto por imágenes de 200x200 en escala de grises.
 Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las categorías a clasificar son las siguientes:
 * *Inclusions*
 * *Patches*
@@ -40,6 +40,7 @@ Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las c
 
 Se adjunta la lista de la documentación oficial del proyecto entregada al cliente:
 * Entrega 1: -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
+* Entrega 2: -> [Documento de diseño](docs/Diseño_grupoC.pdf)
 
 
 ## REQUISITOS
@@ -56,13 +57,16 @@ $ pip install -r requirements.txt
 
 ## EJECUTAR LA APLICACION
 
-* yolo_implentation : El archivo "core" de nuestra aplicacion, donde estan las funciones para ejecutar las tereas deseadas. 
+* **algorithm:** El archivo main_algorithm.py es el archivo principal, con el podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.detection().
 
-* main_algorithm : El archivo principal de la aplicación es el main.py, con el que podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.classify_and_locate.
+* **imper_detect:** El archivo main_imper_detect.py es el archivo de nuestra clase principal (fachada), donde desde aqui llamamos a las clase RecognitionSystem para realizar la deteción y el dibujado de las imágenes. 
 
-* file_manager : El archivo donde se importarant las imagenes.
+* **system_recognition:** El archivo main_system_recognition.py es el core de nuestra aplicación. Desde esta clase se realiza la detección, utilizando yolo_v5 aunque se podria utilizar otra red neuronal si la tuvieramos entrenada. También se realiza el dibujado de los resultados y un post-procesado de los resultados para quedarnos con la etiqueta de mayor peso como resultado final.
 
-### Run algorithm (No olblidar los requisitos !)
+* **imperfection:** El archivo main_imperfection.py contiene la clase Imperfection, donde definimos que formato tendra cada resultado de la red neuronal. El resultado obtenido desde yolo_v5, sera una lista de Imperfections.
+
+
+### Run algorithm (¡No olvidar los requisitos!)
 ```bash
 $ python src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
 ```
@@ -97,11 +101,13 @@ $ tox
 ├── setup.py
 ├── src
 │   └── algorithm
-│            ├── file_manager.py
-│            ├── __init__.py
 │            ├── main_algorithm.py
-│            ├── py.typed
-│            └── yolo_implementation.py
+│   └── imper_detect
+│            ├── main_imper_detect.py
+│   └── imperfection
+│            ├── main_imperfection.py
+│   └── system_recognition
+│            ├── main_system_recognition.py
 ├── tests
 │       └── test_algorithm.py
 └── tox.ini
