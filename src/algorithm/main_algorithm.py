@@ -13,18 +13,11 @@
 
 # Imports
 import argparse
-from imper_detect.main_imper_detect import ImperDetect
-
-# Global variables
-
-# Class declarations
+from yolo_v5.main_yolo_v5 import YOLOv5
+# from fast_rcnn.main_fast_rcnn import FastRcnn
 
 
 # Function declarations
-def check_connection(a):
-    return a + 1
-
-
 def get_arguments():
     ap = argparse.ArgumentParser()
 
@@ -37,18 +30,18 @@ def main():
     args = get_arguments()
     image_path = args["file"]
 
-    imper = ImperDetect(image_path, "yoloV5")
-    # imper = ImperDetect(image_path, "Fast_RCNN")
-    imper.detection()
-    imper.print_info()
+    yolov5 = YOLOv5(image_path)
+    yolov5.detect()
+    yolov5.print_info()
 
-    print("Algorithm : " + str(imper.get_class_system_recognition().get_algorithm()))
-    print("Imperfections : " + str(imper.get_class_system_recognition().get_imperfections()))
-    print("Class : " + str(imper.get_class_system_recognition().get_class_most_conf()))
-    print("Image : " + str(imper.get_class_system_recognition().get_image()))
+    print("\n")
+    print("Algorithm : " + str(yolov5.get_algorithm()))
+    print("Imperfections : " + str(yolov5.get_imperfections()))
+    print("Class : " + str(yolov5.get_class_most_conf()))
+    print("Image : " + str(yolov5.get_image()))
 
     if args["store_result"]:
-        imper.draw()
+        yolov5.draw()
 
 
 # Main body

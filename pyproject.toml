@@ -3,7 +3,7 @@ requires = ["setuptools>=42.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
-addopts = "-s --cov=imper_detect --cov=imperfection --cov=system_recognition"
+addopts = "-s --cov=imperfection --cov=system_recognition --cov=yolo_v5 --cov=fast_rcnn --cov=main_algorithm"
 testpaths = [
     "tests",
 ]
