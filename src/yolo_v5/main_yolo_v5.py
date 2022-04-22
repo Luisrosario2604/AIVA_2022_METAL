@@ -52,7 +52,7 @@ class YOLOv5(SystemRecognition):
 
         if os.path.isdir('./yolov5/runs'):
             shutil.rmtree('./yolov5/runs')
-        prog = "python3 ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --save-conf --source "\
+        prog = "python ./yolov5/detect.py --weights ./yolov5/weights/best.pt --img 416 --conf 0.4 --save-conf --source "\
                + str(self.__image_path) + " --nosave " + "--save-txt"
         os.system(prog)
         print("\n___________________________________________________________\n\n")
