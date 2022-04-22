@@ -12,13 +12,13 @@
 # */
 
 # Imports
-import pytest
-import os
-import sys
-import filecmp
+# import pytest
+# import os
+# import sys
+# import filecmp
 
 from yolo_v5.main_yolo_v5 import YOLOv5
-from fast_rcnn.main_fast_rcnn import FastRcnn
+# from fast_rcnn.main_fast_rcnn import FastRcnn
 
 # imper_no_detect = ImperDetect("dataset/IMAGES/inclusion_1.jpg", "yoloV5")
 # imper1 = ImperDetect("dataset/IMAGES/inclusion_1.jpg", "yoloV5")
