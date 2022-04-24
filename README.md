@@ -1,11 +1,6 @@
 # AIVA_2022_METAL
 # Clasificación y localización de defectos en imágenes de superficies de metal.
 
-## AUTORES
-* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
-* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
-* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
-
 ## Descripción
 Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.
 
@@ -67,7 +62,7 @@ Cuado un push o pull se effectua automaticamente :
 Hay 20 tests con un coverage total de 96%
 
 
-## ESTRUCTURA DEL PROYECTO
+## Estructura del proyecto
 ```
 .
 ├── dataset
@@ -113,7 +108,12 @@ Hay 20 tests con un coverage total de 96%
 └── tox.ini
 ```
 
-## RESULTADOS
+## Resultados
 <p align="center">
 	<img src="exemples/resultado.jpeg" alt="resultado" width="50%"/>
 </p>
+
+## AUTORES
+* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
+* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
+* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
