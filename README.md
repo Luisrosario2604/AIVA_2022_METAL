@@ -75,6 +75,7 @@ Hay 20 tests con un coverage total de 96%
 │        └── IMAGES
 ├── docs
 │        ├── Diseño_grupoC.pdf
+│        ├── SistemaFuncional_grupoC.pdf
 │        └── ERS_grupoC.pdf
 ├── docker
 │        └── Dockerfile
