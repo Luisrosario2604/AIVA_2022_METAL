@@ -65,6 +65,8 @@ Lanzar el proyecto
 $ docker run -p 8000:5000 luisrosario04/aiva_2022_metal
 ```
 
+El servidor escucha en *localhost:8000*
+
 Documentación de las requests http -> [Postman](https://documenter.getpostman.com/view/4800670/UyrAGHub)
 
 ## ESTRUCTURA DEL PROYECTO
