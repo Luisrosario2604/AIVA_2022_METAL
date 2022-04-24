@@ -31,10 +31,10 @@ class YOLOv5(SystemRecognition):
 
     def __init__(self, image_path):
 
-        if not os.path.exists(image_path):
-            raise Exception("\033[1m" + "[ERROR] -> File not existing" + "\033[0m")
         if not image_path.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
             raise Exception("\033[1m" + "[ERROR] -> File is not an image" + "\033[0m")
+        if not os.path.exists(image_path):
+            raise Exception("\033[1m" + "[ERROR] -> File not existing" + "\033[0m")
 
         split = os.path.splitext(image_path)
         name = split[-2].split("/")[-1]

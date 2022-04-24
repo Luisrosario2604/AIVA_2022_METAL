@@ -1,24 +1,25 @@
-# AIVA_2022_METAL_GRUPO_C
+# AIVA_2022_METAL
 # Clasificación y localización de defectos en imágenes de superficies de metal.
 
 
-## AUTORES
-
-* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
-* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
-* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
-
-
-## DESCRIPCION
-Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.  
+## Descripción
+Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.
 
 El objetivo de este trabajo es la clasificación y detección de defectos en superficies metálicas en una línea de producción. Para ello realizaremos una implementación en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicación que ya está funcionando en la fábrica.
 
-## RESULTADOS DE LOS TESTS
+## Tests
 
 ![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
 
-## DATASET
+Cuado un push o pull se effectua automaticamente :
+
+* Los tests se lazan, resultados en github actions
+* La calidad del codigo esta probado con *flake8* y *mypy*
+
+Hay 20 tests con un coverage total de 96%
+
+
+## Dataset
 El dataset proporcionado por la empresa está compuesto por imágenes de 200x200 en escala de grises.
 Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las categorías a clasificar son las siguientes:
 * *Inclusions*
@@ -30,57 +31,41 @@ Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las c
 </p>
 
 
-## ESQUEMA GENERAL
+## Eequema general
+
 <p align="center">
 	<img src="exemples/esquema.jpeg" alt="esquema"/>
 </p>
 
 
-## DOCUMENTACION
+## Documentación
 
 Se adjunta la lista de la documentación oficial del proyecto entregada al cliente:
-* Entrega 1: -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
-* Entrega 2: -> [Documento de diseño](docs/Diseño_grupoC.pdf)
+* ERS : -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
+* Diseño : -> [Documento de diseño](docs/Diseño_grupoC.pdf)
+* Postman : -> [Postman](https://documenter.getpostman.com/view/4800670/UyrAGHub)
 
 
-## REQUISITOS
+## Requisitos
 
-* Python 3.7+
-* Requirements = Requirement.txt
+* Docker
+* Postman (http requests)
+
+
+## Ejecutar la aplicación
+
+
+Instalar el proyecto
 ```bash
-$ pip install -e .
-$ pip install -r requirements.txt
-```
-###### numpy (1.22.3)
-###### opencv_python (4.5.3.56)
-
-
-## EJECUTAR LA APLICACION
-
-* **algorithm:** El archivo main_algorithm.py es el archivo principal, con el podemos realizar las primeras pruebas de la clasificación y localización de defectos llamando a nuestra funcion ImperDetect.detection().
-
-* **imper_detect:** El archivo main_imper_detect.py es el archivo de nuestra clase principal (fachada), donde desde aqui llamamos a las clase RecognitionSystem para realizar la deteción y el dibujado de las imágenes. 
-
-* **system_recognition:** El archivo main_system_recognition.py es el core de nuestra aplicación. Desde esta clase se realiza la detección, utilizando yolo_v5 aunque se podria utilizar otra red neuronal si la tuvieramos entrenada. También se realiza el dibujado de los resultados y un post-procesado de los resultados para quedarnos con la etiqueta de mayor peso como resultado final.
-
-* **imperfection:** El archivo main_imperfection.py contiene la clase Imperfection, donde definimos que formato tendrá cada resultado de la red neuronal. El resultado obtenido desde yolo_v5, será una lista de Imperfection.
-
-
-### Run algorithm (¡No olvidar los requisitos!)
-```bash
-$ python src/algorithm/main_algorithm.py --file="dataset/IMAGES/inclusion_1.jpg" -s
+$ docker pull luisrosario04/aiva_2022_metal
 ```
 
-* **test_algorithm.py**: Es el archivo que realiza los test unitarios sobre el código principal para verificar que las funciones/clases funcionen correctamente.
-
-### Tests automáticos.  
-Estos test son automáticos cuando hay un push o un pull desde github.
-
-Es necesario instalar el siguiente paquete:
+Lanzar el proyecto
 ```bash
-$ pip install tox
-$ tox
+$ docker run -p 8000:5000 luisrosario04/aiva_2022_metal
 ```
+
+Documentación de las requests http -> [Postman](https://documenter.getpostman.com/view/4800670/UyrAGHub)
 
 ## ESTRUCTURA DEL PROYECTO
 
@@ -90,7 +75,10 @@ $ tox
 │        ├── ANNOTATIONS
 │        └── IMAGES
 ├── docs
+│        ├── Diseño_grupoC.pdf
 │        └── ERS_grupoC.pdf
+├── docker
+│        └── Dockerfile
 ├── exemples
 │        ├── esquema.jpeg
 │        ├── resultado.jpeg
@@ -105,12 +93,16 @@ $ tox
 ├── src
 │   └── algorithm
 │       └── main_algorithm.py
-│   └── imper_detect
-│       └── main_imper_detect.py
+│   └── fast_rcnn
+│       └── main_fast_rcnn.py
 │   └── imperfection
 │       └── main_imperfection.py
+│   └── server
+│       └── main_server.py
 │   └── system_recognition
 │       └── main_system_recognition.py
+│   └── yolo_v5
+│       └── main_yolo_v5.py
 ├── tests
 │       └── test_algorithm.py
 ├── yolo_v5
@@ -127,3 +119,9 @@ $ tox
 <p align="center">
 	<img src="exemples/resultado.jpeg" alt="resultado" width="50%"/>
 </p>
+
+## AUTORES
+
+* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
+* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
+* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
