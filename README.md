@@ -31,9 +31,9 @@ Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las c
 
 ## Documentación
 Se adjunta la lista de la documentación oficial del proyecto entregada al cliente:
-* ERS : -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
-* Diseño : -> [Documento de diseño](docs/Diseño_grupoC.pdf)
-* Sistema Funcional: -> [Documento del Sistema funcional](docs/SistemaFuncional_grupoC.pdf)
+* Entrega 1: -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
+* Entrega 2: -> [Documento de diseño](docs/Diseño_grupoC.pdf)
+* Entrega 3: -> [Documento del sistema funcional](docs/SistemaFuncional_grupoC.pdf)
 
 
 ## Requisitos
