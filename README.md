@@ -1,119 +1,124 @@
-# AIVA_2022_METAL
-# Clasificación y localización de defectos en imágenes de superficies de metal.
+# Classification and localisation of defects in images of metal surfaces.
+## This project uses (re-training) of YOLOV5.
 
-## Descripción
-Este repositorio contiene la práctica para la asignatura Aplicaciones Industriales en la Visión Artificial perteneciente al Máster Universitario en Visión Artificial impartido en la Universidad Rey Juan Carlos.
+#### 👨‍🎓 This project was carried out during my master's degree in computer vision at URJC - Madrid 
 
-El objetivo de este trabajo es la clasificación y detección de defectos en superficies metálicas en una línea de producción. Para ello realizaremos una implementación en *Python* con un detector de objetos (YOLOv5) y lo conectaremos mediante *C* a la aplicación que ya está funcionando en la fábrica.
+###### AIVA_2022_METAL
+
+## Description
+This repository contains the practice for the subject Industrial Applications in Machine Vision belonging to the Master's Degree in Machine Vision taught at the Universidad Rey Juan Carlos.
+
+The aim of this work is the classification and detection of defects on metal surfaces in a production line. To do so, we will make an implementation in *Python* with an object detector (YOLOv5) and we will connect it via *C* to the application that is already running in the factory.
 
 ## Dataset
-El dataset proporcionado por la empresa está compuesto por imágenes de 200x200 en escala de grises.
-Por cada categoría nos han proporcionado 300 imágenes con sus etiquetas. Las categorías a clasificar son las siguientes:
+The dataset provided by the company is composed of 200x200 grayscale images.
+For each category we have been provided with 300 images with their labels. The categories to be classified are the following:
 * *Inclusions*
 * *Patches*
 * *Scratches*
 
 <p align="center">
-	<img src="exemples/tipos_defectos.png" alt="resultado" width="80%"/>
+	<img src="exemples/tipos_defectos.png" alt="result" width="80%"/>
 </p>
 
 
-## Eequema general
+## General outline
 <p align="center">
-	<img src="exemples/esquema.jpeg" alt="esquema"/>
+	<img src="exemples/esquema.jpeg" alt="General outline"/>
 </p>
 
 
-## Documentación
-Se adjunta la lista de la documentación oficial del proyecto entregada al cliente:
+## Documentation
+The list of official project documentation delivered to the client is attached:
+(The documents are in spanish)
 * ERS : -> [Especificación de Requisitos Software (ERS)](docs/ERS_grupoC.pdf)
-* Diseño : -> [Documento de diseño](docs/Diseño_grupoC.pdf)
-* Sistema Funcional: -> [Documento del Sistema funcional](docs/SistemaFuncional_grupoC.pdf)
+* Design : -> [Documento de diseño](docs/Diseño_grupoC.pdf)
+* Functional System : -> [Documento del Sistema funcional](docs/SistemaFuncional_grupoC.pdf)
 
 
-## Requisitos
+## Requirements
 * Docker
 * Postman (http requests)
 
 
-## Ejecutar la aplicación
-Utilizando nuestra imagen de docker, podemos instalar todo nuestro repositirio y las dependencias que necesitaremos. 
+## How to run the app
+Using our docker image, we can install our entire repository and the dependencies we will need. 
 ```bash
 $ docker pull luisrosario04/aiva_2022_metal
 ```
 
-Una vez descargada la imagen, vamos a lanzar el contenedor (docker) con el siguiente comando:
+Once the image is downloaded, we are going to launch the container (docker) with the following command:
 ```bash
 $ docker run -p 8000:5000 luisrosario04/aiva_2022_metal
 ```
-El servidor escucha en *localhost:8000*
+The server listens in *localhost:8000*
 
-Documentación de las requests http -> [POSTMAN](https://documenter.getpostman.com/view/4800670/UyrAGHub)
+Documentation of http requests -> [POSTMAN](https://documenter.getpostman.com/view/4800670/UyrAGHub)
 
 
 ## Tests
 ![Tests](https://github.com/Luisrosario2604/AIVA_2022_METAL/actions/workflows/tests.yml/badge.svg)
 
-Cuado un push o pull se effectua automaticamente :
+When a push or pull is performed automatically:
 
-* Los tests se lazan, resultados en github actions
-* La calidad del codigo esta probado con *flake8* y *mypy*
+* When tests are launched the results can be found in the github actions.
+* The quality of the code is tested with *flake8* and *mypy*.
 
-Hay 20 tests con un coverage total de 96%
+There are 20 tests with a total, for a coverage of 96%.
 
 
-## Estructura del proyecto
+## Project structure
 ```
-.
-├── dataset
-│        ├── ANNOTATIONS
-│        └── IMAGES
-├── docs
-│        ├── Diseño_grupoC.pdf
-│        └── ERS_grupoC.pdf
-├── docker
-│        └── Dockerfile
-├── exemples
-│        ├── esquema.jpeg
-│        ├── resultado.jpeg
-│        ├── Screen1.png
-│        └── tipos_defectos.png
-├── pyproject.toml
-├── README.md
-├── requirements_dev.txt
-├── requirements.txt
-├── setup.cfg
-├── setup.py
-├── src
-│   └── algorithm
-│       └── main_algorithm.py
-│   └── fast_rcnn
-│       └── main_fast_rcnn.py
-│   └── imperfection
-│       └── main_imperfection.py
-│   └── server
-│       └── main_server.py
-│   └── system_recognition
-│       └── main_system_recognition.py
-│   └── yolo_v5
-│       └── main_yolo_v5.py
-├── tests
-│       └── test_algorithm.py
-├── yolo_v5
-│       ├── models
-│       ├── utils
-│       ├── weights
-│       ├── detect.py
-│       └── export.py
-└── tox.ini
+    .
+    ├── dataset
+    │        ├── ANNOTATIONS
+    │        └── IMAGES
+    ├── docs
+    │        ├── Diseño_grupoC.pdf
+    │        └── ERS_grupoC.pdf
+    ├── docker
+    │        └── Dockerfile
+    ├── exemples
+    │        ├── esquema.jpeg
+    │        ├── resultado.jpeg
+    │        ├── Screen1.png
+    │        └── tipos_defectos.png
+    ├── pyproject.toml
+    ├── README.md
+    ├── requirements_dev.txt
+    ├── requirements.txt
+    ├── setup.cfg
+    ├── setup.py
+    ├── src
+    │   └── algorithm
+    │       └── main_algorithm.py
+    │   └── fast_rcnn
+    │       └── main_fast_rcnn.py
+    │   └── imperfection
+    │       └── main_imperfection.py
+    │   └── server
+    │       └── main_server.py
+    │   └── system_recognition
+    │       └── main_system_recognition.py
+    │   └── yolo_v5
+    │       └── main_yolo_v5.py
+    ├── tests
+    │       └── test_algorithm.py
+    ├── yolo_v5
+    │       ├── models
+    │       ├── utils
+    │       ├── weights
+    │       ├── detect.py
+    │       └── export.py
+    └── tox.ini
 ```
 
-## Resultados
+## Results
 <p align="center">
 	<img src="exemples/resultado.jpeg" alt="resultado" width="50%"/>
 </p>
 
-## AUTORES
-* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Miembro 1* - [Natalia](https://github.com/natalialperez)
-* **GILABERT MAÑO, VICENTE** - *Miembro 2* - [Vicent](https://github.com/vgilabert94)
-* **ROSARIO TREMOULET, LUIS** - *Miembro 3* - [Luis](https://github.com/Luisrosario2604)
+## AUTORS
+* **PÉREZ GARCÍA DE LA PUENTE, NATALIA LOURDES** - *Member 1* - [Natalia](https://github.com/natalialperez)
+* **GILABERT MAÑO, VICENTE** - *Member 2* - [Vicent](https://github.com/vgilabert94)
+* **ROSARIO TREMOULET, LUIS** - *Member 3* - [Luis](https://github.com/Luisrosario2604)
