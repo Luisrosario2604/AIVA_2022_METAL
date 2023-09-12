@@ -1,7 +1,9 @@
 # Classification and localisation of defects in images of metal surfaces.
 ## This project uses (re-training) of YOLOV5.
 
-#### 👨‍🎓 This project was carried out during my master's degree in computer vision at URJC - Madrid 
+#### 👨‍🎓 This project was carried out during my master's degree in computer vision at URJC - Madrid
+
+###### AIVA_2022_METAL
 
 ## Description
 This repository contains the practice for the subject Industrial Applications in Machine Vision belonging to the Master's Degree in Machine Vision taught at the Universidad Rey Juan Carlos.
